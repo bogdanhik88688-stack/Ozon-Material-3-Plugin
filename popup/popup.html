@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ozon Material 3 Expressive</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top App Bar -->
+    <header class="top-bar">
+      <div class="brand">
+        <div class="brand-badge" id="brand-badge" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>Ozon MD3</h1>
+          <span class="subtitle">Material 3 Expressive</span>
+        </div>
+      </div>
+
+      <label class="m3-switch" title="Включить или выключить редизайн Ozon MD3">
+        <input type="checkbox" id="toggle-enabled" />
+        <span class="m3-switch-track">
+          <span class="m3-switch-thumb" id="master-thumb-icon"></span>
+        </span>
+      </label>
+    </header>
+
+    <!-- Live Material You Preview Card -->
+    <section class="preview-card" id="preview-card" aria-label="Живой предпросмотр темы">
+      <div class="preview-row">
+        <div class="preview-thumb" id="preview-thumb">
+          <span id="preview-bag-icon"></span>
+        </div>
+        <div class="preview-meta">
+          <div class="preview-title" id="preview-title">Ozon • Material You</div>
+          <div class="preview-sub" id="preview-sub">Углы 20px • Кнопки 100%</div>
+          <div class="preview-actions">
+            <span class="preview-btn" id="preview-cta-btn">В корзину</span>
+            <span class="preview-chip" id="preview-chip-fav"></span>
+            <span class="preview-chip" id="preview-chip-ads">Реклама: 0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tonal-swatches" aria-label="Тональная палитра">
+        <span class="swatch" style="background: var(--md-sys-color-primary)" title="Primary"></span>
+        <span class="swatch" style="background: var(--md-sys-color-primary-container)" title="Primary Container"></span>
+        <span class="swatch" style="background: var(--md-sys-color-secondary-container)" title="Secondary Container"></span>
+        <span class="swatch" style="background: var(--md-sys-color-tertiary)" title="Tertiary"></span>
+        <span class="swatch" style="background: var(--md-sys-color-surface-container-highest)" title="Surface High"></span>
+      </div>
+    </section>
+
+    <!-- MD3 Segmented Navigation Tabs -->
+    <nav class="m3-tabs" role="tablist" aria-label="Разделы настроек">
+      <button type="button" class="m3-tab is-active" role="tab" aria-selected="true" data-tab="colors" id="tab-btn-colors"></button>
+      <button type="button" class="m3-tab" role="tab" aria-selected="false" data-tab="layout" id="tab-btn-layout"></button>
+      <button type="button" class="m3-tab" role="tab" aria-selected="false" data-tab="motion" id="tab-btn-motion"></button>
+    </nav>
+
+    <!-- Main Scrollable Tab Panels -->
+    <main class="tab-panels">
+      <!-- TAB 1: Colors (RGB Accent / Text / Buttons + MD3 Scheme) -->
+      <section class="tab-panel is-active" data-panel="colors">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Режим темы</span>
+            <div class="chip-inline-group">
+              <button type="button" class="mini-filter-chip" id="btn-full-accent">Заливка</button>
+              <button type="button" class="mini-filter-chip" id="btn-amoled">AMOLED</button>
+            </div>
+          </div>
+          <div class="segmented-group" id="theme-mode-group">
+            <button type="button" class="seg-btn" data-theme="auto">Авто</button>
+            <button type="button" class="seg-btn" data-theme="light">Светлая</button>
+            <button type="button" class="seg-btn" data-theme="dark">Тёмная</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Шкала RGB (MD3)</span>
+            <div class="hex-controls-right">
+              <button type="button" class="mini-filter-chip" id="btn-target-auto" style="display: none;">Авто</button>
+              <div class="hex-input-pill">
+                <span class="hex-dot" id="rgb-preview-dot"></span>
+                <input type="text" id="hex-input" maxlength="7" value="#6750A4" aria-label="HEX цвет" spellcheck="false" />
+              </div>
+            </div>
+          </div>
+
+          <div class="segmented-group mb-10" id="rgb-target-group">
+            <button type="button" class="seg-btn is-active" data-rgb-target="accent">Акцент</button>
+            <button type="button" class="seg-btn" data-rgb-target="text">Текст</button>
+            <button type="button" class="seg-btn" data-rgb-target="button">Кнопки</button>
+          </div>
+
+          <div class="rgb-sliders">
+            <div class="m3-slider-row">
+              <span class="ch-badge ch-r">R</span>
+              <div class="m3-expressive-slider" data-channel="r" style="--slider-color: #FF4D4D">
+                <div class="m3-slider-tooltip" id="tip-r">103</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-r" min="0" max="255" value="103" aria-label="Красный канал R" />
+              </div>
+              <span class="ch-value" id="val-r">103</span>
+            </div>
+
+            <div class="m3-slider-row">
+              <span class="ch-badge ch-g">G</span>
+              <div class="m3-expressive-slider" data-channel="g" style="--slider-color: #2FD66B">
+                <div class="m3-slider-tooltip" id="tip-g">80</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-g" min="0" max="255" value="80" aria-label="Зелёный канал G" />
+              </div>
+              <span class="ch-value" id="val-g">80</span>
+            </div>
+
+            <div class="m3-slider-row">
+              <span class="ch-badge ch-b">B</span>
+              <div class="m3-expressive-slider" data-channel="b" style="--slider-color: #4D8BFF">
+                <div class="m3-slider-tooltip" id="tip-b">164</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-b" min="0" max="255" value="164" aria-label="Синий канал B" />
+              </div>
+              <span class="ch-value" id="val-b">164</span>
+            </div>
+          </div>
+
+          <div class="presets-label">Быстрые акценты</div>
+          <div class="preset-dots" id="preset-dots"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Стиль палитры MD3</span>
+          </div>
+          <div class="chip-wrap" id="scheme-style-group">
+            <button type="button" class="filter-chip" data-scheme="expressive">Expressive</button>
+            <button type="button" class="filter-chip" data-scheme="tonalSpot">Tonal Spot</button>
+            <button type="button" class="filter-chip" data-scheme="vibrant">Vibrant</button>
+            <button type="button" class="filter-chip" data-scheme="fidelity">Fidelity</button>
+            <button type="button" class="filter-chip" data-scheme="monochrome">Mono</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Layout, Corner Radius, Button Size & Icons -->
+      <section class="tab-panel" data-panel="layout">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Скругление всех краёв</span>
+            <span class="badge-pill" id="badge-radius">20px</span>
+          </div>
+          <div class="m3-slider-row-2col">
+            <div class="m3-expressive-slider" id="slider-wrap-radius">
+              <div class="m3-slider-tooltip" id="tip-radius">20px</div>
+              <div class="m3-slider-track-shell">
+                <div class="m3-slider-active-track"></div>
+                <div class="m3-slider-handle"></div>
+                <div class="m3-slider-inactive-track"></div>
+              </div>
+              <input type="range" id="slider-radius" min="0" max="36" step="1" value="20" aria-label="Скругление углов" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Кастомизация интерфейса</span>
+          </div>
+
+          <div class="slider-labeled-list">
+            <div class="slider-labeled-item">
+              <div class="slider-item-head">
+                <span>Размер кнопок</span>
+                <span class="ch-value" id="val-btn-scale">100%</span>
+              </div>
+              <div class="m3-expressive-slider" id="slider-wrap-btn-scale">
+                <div class="m3-slider-tooltip" id="tip-btn-scale">100%</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-btn-scale" min="75" max="140" step="5" value="100" aria-label="Размер кнопок" />
+              </div>
+            </div>
+
+            <div class="slider-labeled-item">
+              <div class="slider-item-head">
+                <span>Размер текста</span>
+                <span class="ch-value" id="val-font-scale">100%</span>
+              </div>
+              <div class="m3-expressive-slider" id="slider-wrap-font-scale">
+                <div class="m3-slider-tooltip" id="tip-font-scale">100%</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-font-scale" min="85" max="125" step="5" value="100" aria-label="Размер текста" />
+              </div>
+            </div>
+
+            <div class="slider-labeled-item">
+              <div class="slider-item-head">
+                <span>Размер иконок</span>
+                <span class="ch-value" id="val-icon-size">22px</span>
+              </div>
+              <div class="m3-expressive-slider" id="slider-wrap-icon-size">
+                <div class="m3-slider-tooltip" id="tip-icon-size">22px</div>
+                <div class="m3-slider-track-shell">
+                  <div class="m3-slider-active-track"></div>
+                  <div class="m3-slider-handle"></div>
+                  <div class="m3-slider-inactive-track"></div>
+                </div>
+                <input type="range" id="slider-icon-size" min="14" max="30" step="1" value="22" aria-label="Размер иконок" />
+              </div>
+            </div>
+          </div>
+
+          <div class="presets-label">Плотность карточек</div>
+          <div class="segmented-group" id="density-group">
+            <button type="button" class="seg-btn" data-density="compact">Компактно</button>
+            <button type="button" class="seg-btn" data-density="comfortable">Стандарт</button>
+            <button type="button" class="seg-btn" data-density="spacious">Просторно</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Иконки и оформление</span>
+          </div>
+          <div class="icons-showcase" id="icons-showcase" aria-hidden="true"></div>
+          <div class="switch-list">
+            <label class="switch-row">
+              <span>Заменять все иконки на MD3</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-rewrite-icons" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Тональные карточки MD3</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-tonal-cards" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Шрифт Material Design 3</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-md3-font" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Подложки под цены товаров</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-price-badges" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Кнопка «Параметры» на сайте</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-floating-studio" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: Ad Blocker & Expressive Animations -->
+      <section class="tab-panel" data-panel="motion">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Блокировка рекламы Ozon</span>
+            <span class="badge-pill" id="badge-ads-blocked">Активно</span>
+          </div>
+          <div class="switch-list">
+            <label class="switch-row">
+              <span>Полностью вырезать всю рекламу</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-block-ads" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Скрывать все баннеры и карусели</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-block-banners" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+            <label class="switch-row">
+              <span>Убирать карточки «Реклама» в поиске</span>
+              <span class="m3-switch m3-switch-sm">
+                <input type="checkbox" id="sw-block-sponsored" />
+                <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Наведение на карточки товаров</span>
+          </div>
+          <div class="chip-wrap" id="hover-anim-group">
+            <button type="button" class="filter-chip" data-hover="spring">Spring Lift</button>
+            <button type="button" class="filter-chip" data-hover="morph">Shape Morph</button>
+            <button type="button" class="filter-chip" data-hover="tilt">3D Tilt</button>
+            <button type="button" class="filter-chip" data-hover="minimal">Minimal</button>
+            <button type="button" class="filter-chip" data-hover="off">Выкл</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Expressive переходы страниц</span>
+            <span class="m3-switch m3-switch-sm">
+              <input type="checkbox" id="sw-page-transitions" />
+              <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+            </span>
+          </div>
+
+          <div class="presets-label">Тип перехода</div>
+          <div class="segmented-group mb-10" id="trans-style-group">
+            <button type="button" class="seg-btn" data-trans-style="shared-axis">Shared Axis</button>
+            <button type="button" class="seg-btn" data-trans-style="morph-lift">Morph Lift</button>
+            <button type="button" class="seg-btn" data-trans-style="slide-x">Slide X</button>
+          </div>
+
+          <div class="presets-label">Скорость Expressive Spring</div>
+          <div class="segmented-group mb-10" id="trans-speed-group">
+            <button type="button" class="seg-btn" data-trans-speed="fast">350мс</button>
+            <button type="button" class="seg-btn" data-trans-speed="default">500мс</button>
+            <button type="button" class="seg-btn" data-trans-speed="slow">650мс</button>
+          </div>
+
+          <label class="switch-row">
+            <span>Эффект волны (MD3 Ripple) при клике</span>
+            <span class="m3-switch m3-switch-sm">
+              <input type="checkbox" id="sw-ripple" />
+              <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+            </span>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Reset -->
+    <footer class="footer-actions">
+      <button type="button" class="tonal-action-btn" id="btn-reset">
+        <span id="reset-icon-slot"></span>
+        <span>Сбросить настройки</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="../src/webext-compat.js"></script>
+  <script src="../src/md3-color.js"></script>
+  <script src="../src/md3-icons.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
