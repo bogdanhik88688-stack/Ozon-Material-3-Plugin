@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Ozon Material 3 Expressive",
+  "short_name": "Ozon MD3",
+  "version": "1.0.0",
+  "description": "Полный редизайн Ozon (ozon.ru) в стиле Material Design 3 Expressive: RGB-акцент и цвет текста, 0 рекламы и баннеров, скругление углов, кастомизация интерфейса, Spring-анимации и замена иконок.",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://*.ozon.ru/*",
+    "https://ozon.ru/*",
+    "https://*.ozon.by/*",
+    "https://ozon.by/*",
+    "https://*.ozon.kz/*",
+    "https://ozon.kz/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Ozon Material 3 Expressive",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ozon_adblock_rules",
+        "enabled": true,
+        "path": "rules/adblock-rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ozon.ru/*",
+        "https://ozon.ru/*",
+        "https://*.ozon.by/*",
+        "https://ozon.by/*",
+        "https://*.ozon.kz/*",
+        "https://ozon.kz/*"
+      ],
+      "all_frames": false,
+      "run_at": "document_start",
+      "css": [
+        "src/md3-ozon.css"
+      ],
+      "js": [
+        "src/webext-compat.js",
+        "src/md3-color.js",
+        "src/md3-icons.js",
+        "src/ozon-adblock.js",
+        "src/md3-transitions.js",
+        "src/content.js"
+      ]
+    }
+  ]
+}
