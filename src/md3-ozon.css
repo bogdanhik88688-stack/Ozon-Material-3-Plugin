@@ -1,0 +1,1013 @@
+/* ============================================================================
+   Ozon Material 3 Expressive — Full Redesign, Ad Removal, Shape Scale,
+   UI Sizing, Hover Springs, Expressive Transitions & Quick Studio Panel
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   1. Complete Ad & Banner Hiding (Zero-flash at document_start)
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-ozmd3-ad-hidden="1"],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-ozmd3-ad-wrapper-hidden="1"],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="adv" i]:not([data-widget*="advantage" i]),
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="advert" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="banner" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="promo" i]:not([data-widget*="promocode" i]),
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="stories" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="digitalMainHero" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="marketAd" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="billboard" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] [data-widget*="teaser" i],
+html[data-ozmd3="on"][data-ozmd3-ads="on"] a[href*="erid="]:not([data-widget="header"] a) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ----------------------------------------------------------------------------
+   2. Root Typography, Surface Canvas & Smooth Color/Shape Transitions
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"] {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--ozmd3-text-primary) !important;
+  color-scheme: light;
+}
+
+html[data-ozmd3="on"][data-ozmd3-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-ozmd3="on"] body {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--ozmd3-text-primary) !important;
+  overflow-x: hidden;
+  transition: background-color 0.28s var(--md-motion-spring-default-effects),
+              color 0.24s var(--md-motion-spring-default-effects);
+}
+
+html[data-ozmd3="on"][data-ozmd3-font="on"] body,
+html[data-ozmd3="on"][data-ozmd3-font="on"] button,
+html[data-ozmd3="on"][data-ozmd3-font="on"] input,
+html[data-ozmd3="on"][data-ozmd3-font="on"] textarea,
+html[data-ozmd3="on"][data-ozmd3-font="on"] select {
+  font-family: "Google Sans Text", "Google Sans", "Roboto", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif !important;
+}
+
+html[data-ozmd3="on"] #layoutPage,
+html[data-ozmd3="on"] main,
+html[data-ozmd3="on"] [data-widget="container"] {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--ozmd3-text-primary) !important;
+}
+
+/* Full Accent Surface Painting Across Nested Ozon Wrappers */
+html[data-ozmd3="on"][data-ozmd3-full-accent="on"] body,
+html[data-ozmd3="on"][data-ozmd3-full-accent="on"] #layoutPage {
+  background-image: radial-gradient(
+    ellipse 110% 420px at 50% 0%,
+    rgba(var(--md-sys-color-primary-rgb), 0.14) 0%,
+    rgba(var(--md-sys-color-tertiary-rgb), 0.06) 55%,
+    transparent 100%
+  ) !important;
+  background-repeat: no-repeat !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="surface"],
+html[data-ozmd3="on"] #layoutPage > div:not([data-widget="header"]),
+html[data-ozmd3="on"] main > div {
+  background-color: var(--md-sys-color-surface) !important;
+  color: var(--ozmd3-text-primary) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="container-low"] {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-lg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="container"],
+html[data-ozmd3="on"] [data-widget="searchResultsV2"],
+html[data-ozmd3="on"] [data-widget="catalogResults"],
+html[data-ozmd3="on"] [data-widget="facets"],
+html[data-ozmd3="on"] [data-widget*="filter" i],
+html[data-ozmd3="on"] [data-widget="megaMenu"],
+html[data-ozmd3="on"] [data-widget="catalog"],
+html[data-ozmd3="on"] [data-widget*="cart" i],
+html[data-ozmd3="on"] [data-widget*="order" i],
+html[data-ozmd3="on"] [data-widget*="profile" i] {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-lg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="container-high"] {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-xs) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="surface-high"] {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-xl) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-bg="transparent"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Global Font Size Scaling */
+html[data-ozmd3="on"][data-ozmd3-font-scaled="on"] #layoutPage {
+  font-size: calc(100% * var(--ozmd3-font-scale, 1)) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   3. Sticky Tonal / Glass Material Design 3 Header & Search Bar
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"] header,
+html[data-ozmd3="on"] [data-widget="header"] {
+  background-color: var(--ozmd3-glass-header) !important;
+  backdrop-filter: blur(18px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35) !important;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant) !important;
+  border-radius: 0 0 var(--ozmd3-radius-lg) var(--ozmd3-radius-lg) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  color: var(--ozmd3-text-primary) !important;
+  transition: background-color 0.25s var(--md-motion-spring-default-effects),
+              border-radius 0.25s var(--md-motion-spring-fast-spatial) !important;
+}
+
+/* Search Bar MD3 Pill / Rounded Container */
+html[data-ozmd3="on"] [data-widget*="search" i] form,
+html[data-ozmd3="on"] [data-ozmd3-role="search-box"] {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  border: 1.5px solid var(--md-sys-color-outline-variant) !important;
+  border-radius: var(--ozmd3-radius-pill) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s var(--md-motion-spring-fast-effects),
+              background-color 0.2s var(--md-motion-spring-fast-effects),
+              box-shadow 0.26s var(--md-motion-spring-fast-spatial),
+              border-radius 0.26s var(--md-motion-spring-fast-spatial) !important;
+}
+
+html[data-ozmd3="on"] [data-widget*="search" i] form:focus-within,
+html[data-ozmd3="on"] [data-ozmd3-role="search-box"]:focus-within {
+  background-color: var(--md-sys-color-surface-container-highest) !important;
+  border-color: var(--md-sys-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(var(--md-sys-color-primary-rgb), 0.18) !important;
+}
+
+html[data-ozmd3="on"] [data-widget*="search" i] input {
+  background: transparent !important;
+  color: var(--ozmd3-text-primary) !important;
+}
+
+html[data-ozmd3="on"] [data-widget*="search" i] input::placeholder {
+  color: var(--ozmd3-text-muted) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   4. Text Color & Semantic Surfaces (RGB Text Color & Dark/Light Mode)
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"] [data-ozmd3-role="surface-low"] {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-lg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="surface"],
+html[data-ozmd3="on"] [data-ozmd3-role="panel"],
+html[data-ozmd3="on"] [data-widget="webCharacteristics"],
+html[data-ozmd3="on"] [data-widget="webReviews"],
+html[data-ozmd3="on"] [data-widget="webPrice"],
+html[data-ozmd3="on"] [data-widget="webSale"],
+html[data-ozmd3="on"] [data-widget="webProductHeading"],
+html[data-ozmd3="on"] [data-widget="paginator"] {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-lg) !important;
+  border-color: var(--md-sys-color-outline-variant) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="surface-high"],
+html[data-ozmd3="on"] [role="dialog"],
+html[data-ozmd3="on"] [role="menu"],
+html[data-ozmd3="on"] [role="listbox"] {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border-radius: var(--ozmd3-radius-xl) !important;
+  border: 1px solid var(--md-sys-color-outline-variant) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22) !important;
+}
+
+html[data-ozmd3="on"] footer,
+html[data-ozmd3="on"] [data-widget="footer"] {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--ozmd3-text-secondary) !important;
+  border-top: 1px solid var(--md-sys-color-outline-variant) !important;
+  border-radius: var(--ozmd3-radius-xl) var(--ozmd3-radius-xl) 0 0 !important;
+}
+
+/* Custom RGB Text Color Application */
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] body,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] h1,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] h2,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] h3,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] h4,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] p,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] span:not([data-ozmd3-btn-text]),
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] a:not([data-ozmd3-role="btn-primary"]):not([data-ozmd3-role="btn-tonal"]),
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] label,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] li,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] td,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] th,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] input,
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] textarea {
+  color: var(--ozmd3-text-primary) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] [data-ozmd3-role="btn-primary"],
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] [data-ozmd3-role="btn-primary"] *,
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"],
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"] * {
+  color: var(--ozmd3-btn-fg) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] [data-ozmd3-role="btn-tonal"],
+html[data-ozmd3="on"][data-ozmd3-custom-text="on"] [data-ozmd3-role="btn-tonal"] *,
+html[data-ozmd3="on"] [data-ozmd3-role="btn-tonal"],
+html[data-ozmd3="on"] [data-ozmd3-role="btn-tonal"] * {
+  color: var(--ozmd3-tonal-btn-fg) !important;
+}
+
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) [data-ozmd3-role="text-primary"],
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) h1,
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) h2,
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) h3 {
+  color: var(--ozmd3-text-primary) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) #layoutPage a,
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) #layoutPage span,
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) #layoutPage p,
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) #layoutPage div,
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) #layoutPage li,
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) header a:not([data-ozmd3-role="btn-primary"]),
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) header span:not([data-ozmd3-role="btn-primary"] *),
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) [data-widget="header"] a:not([data-ozmd3-role="btn-primary"]),
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) [data-widget="header"] span:not([data-ozmd3-role="btn-primary"] *) {
+  color: var(--ozmd3-text-primary);
+}
+
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) [data-widget="header"] a:not([data-ozmd3-role="btn-primary"]),
+html[data-ozmd3="on"][data-ozmd3-theme="dark"]:not([data-ozmd3-custom-text="on"]) [data-widget="header"] button:not([data-ozmd3-role="btn-primary"]):not([data-ozmd3-role="btn-tonal"]) {
+  color: var(--ozmd3-text-primary) !important;
+}
+
+/* Keep card titles crisp and readable instead of raw Ozon blue */
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) [data-ozmd3-role="card"] a:not([data-ozmd3-role="btn-primary"]):not([data-ozmd3-role="btn-tonal"]),
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) .tile-root a:not([data-ozmd3-role="btn-primary"]):not([data-ozmd3-role="btn-tonal"]) {
+  color: var(--ozmd3-text-primary) !important;
+}
+
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) [data-ozmd3-role="card"] a:not([data-ozmd3-role="btn-primary"]):hover,
+html[data-ozmd3="on"]:not([data-ozmd3-custom-text="on"]) .tile-root a:not([data-ozmd3-role="btn-primary"]):hover {
+  color: var(--md-sys-color-primary) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="text-secondary"] {
+  color: var(--ozmd3-text-secondary) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="price-accent"] {
+  color: var(--md-sys-color-primary) !important;
+}
+
+/* Unlock fixed-height price row slots inside product cards so podlozhki never overlap title text */
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-price-slot="1"] {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  margin-bottom: 6px !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="card"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] .tile-root {
+  height: auto !important;
+  grid-auto-rows: auto !important;
+}
+
+/* Product Price Badges (Подложки под цену товаров — компактно в 1 строку без наложения на текст) */
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-row"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-pill"] {
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  column-gap: 5px !important;
+  row-gap: 2px !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  position: static !important;
+  margin: 0 0 6px 0 !important;
+  padding: calc(2.5px * var(--ozmd3-btn-scale, 1)) calc(8px * var(--ozmd3-btn-scale, 1)) !important;
+  border-radius: var(--ozmd3-radius-sm) !important;
+  background: linear-gradient(
+    135deg,
+    var(--md-sys-color-primary-container) 0%,
+    rgba(var(--md-sys-color-tertiary-rgb), 0.22) 100%
+  ) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-primary-container) !important;
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.36) !important;
+  box-shadow: 0 2px 8px rgba(var(--md-sys-color-primary-rgb), 0.14) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  transition: transform 0.28s var(--md-motion-spring-fast-spatial),
+              box-shadow 0.22s var(--md-motion-spring-fast-effects),
+              border-radius 0.24s var(--md-motion-spring-fast-spatial) !important;
+}
+
+/* Normalize inner children of price-row / price-pill so gradient-text or fixed widths never hide or overlap prices */
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-row"] > *,
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-pill"] * {
+  position: static !important;
+  margin: 0 !important;
+  transform: none !important;
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  flex: 0 0 auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-primary-container) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-main"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-main"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 0.94em !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-primary-container) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-old"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="price-old"] * {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 0.8em !important;
+  white-space: nowrap !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-primary-container) !important;
+  opacity: 0.62 !important;
+  text-decoration: line-through !important;
+  font-weight: 500 !important;
+}
+
+/* Harmonized MD3 Discount Badge (-35%, -80%, etc.) — eliminates blinding white boxes */
+html[data-ozmd3="on"] [data-ozmd3-role="discount-pill"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: static !important;
+  margin: 0 !important;
+  padding: 1px 5px !important;
+  border-radius: var(--ozmd3-radius-xs) !important;
+  background: var(--md-sys-color-tertiary-container) !important;
+  background-color: var(--md-sys-color-tertiary-container) !important;
+  color: var(--md-sys-color-on-tertiary-container) !important;
+  -webkit-text-fill-color: var(--md-sys-color-on-tertiary-container) !important;
+  border: 1px solid rgba(var(--md-sys-color-tertiary-rgb), 0.35) !important;
+  font-size: 0.76em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="card"]:hover [data-ozmd3-role="price-row"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] [data-ozmd3-role="card"]:hover [data-ozmd3-role="price-pill"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] .tile-root:hover [data-ozmd3-role="price-row"],
+html[data-ozmd3="on"][data-ozmd3-price-badges="on"] .tile-root:hover [data-ozmd3-role="price-pill"] {
+  transform: scale(1.03) !important;
+  box-shadow: 0 4px 14px rgba(var(--md-sys-color-primary-rgb), 0.25) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   5. Global Corner Radius Regulation (ALL Objects Across Site)
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"] [data-ozmd3-role="card"],
+html[data-ozmd3="on"] .tile-root,
+html[data-ozmd3="on"] div[data-index] > div {
+  border-radius: var(--ozmd3-radius-lg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="card"] img,
+html[data-ozmd3="on"] .tile-root img,
+html[data-ozmd3="on"] [data-widget="webGallery"] img,
+html[data-ozmd3="on"] [data-widget="skuShelfGoods"] img,
+html[data-ozmd3="on"] [data-widget="skuGrid"] img {
+  border-radius: var(--ozmd3-radius-md) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="input"],
+html[data-ozmd3="on"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html[data-ozmd3="on"] textarea,
+html[data-ozmd3="on"] select {
+  background-color: var(--md-sys-color-surface-container-highest) !important;
+  color: var(--ozmd3-text-primary) !important;
+  border: 1px solid var(--md-sys-color-outline-variant) !important;
+  border-radius: var(--ozmd3-radius-sm) !important;
+  transition: border-color 0.2s, border-radius 0.24s var(--md-motion-spring-fast-spatial) !important;
+}
+
+html[data-ozmd3="on"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
+html[data-ozmd3="on"] textarea:focus {
+  border-color: var(--md-sys-color-primary) !important;
+  outline: none !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="chip"],
+html[data-ozmd3="on"] [data-ozmd3-role="badge"] {
+  border-radius: var(--ozmd3-radius-xs) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="media-frame"] {
+  border-radius: var(--ozmd3-radius-md) !important;
+  overflow: hidden !important;
+}
+
+/* ----------------------------------------------------------------------------
+   6. Buttons, Controls & Interface Size Customization (--ozmd3-btn-scale)
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"] button:not(.ozmd3-no-scale),
+html[data-ozmd3="on"] a[role="button"]:not(.ozmd3-no-scale),
+html[data-ozmd3="on"] [data-ozmd3-btn]:not(.ozmd3-no-scale) {
+  border-radius: var(--ozmd3-radius-btn) !important;
+  transition: transform 0.26s var(--md-motion-spring-fast-spatial),
+              background-color 0.2s var(--md-motion-spring-fast-effects),
+              box-shadow 0.22s var(--md-motion-spring-fast-effects),
+              border-radius 0.24s var(--md-motion-spring-fast-spatial) !important;
+}
+
+/* Primary / Action / Cart Buttons */
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"] {
+  background: var(--ozmd3-btn-bg) !important;
+  background-color: var(--ozmd3-btn-bg) !important;
+  color: var(--ozmd3-btn-fg) !important;
+  border: none !important;
+  min-height: var(--ozmd3-btn-min-h) !important;
+  padding: var(--ozmd3-btn-pad-y) var(--ozmd3-btn-pad-x) !important;
+  font-size: var(--ozmd3-btn-font) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(var(--md-sys-color-primary-rgb), 0.24) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"] * {
+  color: var(--ozmd3-btn-fg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"]:hover {
+  background: var(--ozmd3-btn-hover-bg) !important;
+  background-color: var(--ozmd3-btn-hover-bg) !important;
+  color: var(--ozmd3-btn-hover-fg) !important;
+  transform: translateY(-1px) scale(1.02) !important;
+  box-shadow: 0 6px 16px rgba(var(--md-sys-color-primary-rgb), 0.34) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"]:hover * {
+  color: var(--ozmd3-btn-hover-fg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-primary"]:active {
+  transform: scale(0.96) !important;
+}
+
+/* Tonal / Secondary Action Buttons */
+html[data-ozmd3="on"] [data-ozmd3-role="btn-tonal"] {
+  background-color: var(--ozmd3-tonal-btn-bg) !important;
+  color: var(--ozmd3-tonal-btn-fg) !important;
+  min-height: var(--ozmd3-btn-min-h) !important;
+  padding: var(--ozmd3-btn-pad-y) var(--ozmd3-btn-pad-x) !important;
+  font-size: var(--ozmd3-btn-font) !important;
+  border: 1px solid var(--md-sys-color-outline-variant) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-tonal"] * {
+  color: var(--ozmd3-tonal-btn-fg) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-role="btn-tonal"]:hover {
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Regular Interactive Text/Header Buttons scaling */
+html[data-ozmd3="on"] [data-ozmd3-btn="regular"] {
+  min-height: calc(34px * var(--ozmd3-btn-scale, 1)) !important;
+  padding: calc(6px * var(--ozmd3-btn-scale, 1)) calc(12px * var(--ozmd3-btn-scale, 1)) !important;
+  font-size: calc(13px * var(--ozmd3-btn-scale, 1)) !important;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-btn="regular"]:hover {
+  background-color: var(--md-sys-state-hover) !important;
+}
+
+/* Icon-only circular/rounded buttons */
+html[data-ozmd3="on"] [data-ozmd3-btn="icon"] {
+  transform-origin: center;
+}
+
+html[data-ozmd3="on"] [data-ozmd3-btn="icon"]:hover {
+  background-color: var(--md-sys-state-primary-hover) !important;
+  transform: scale(1.08) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   7. Material 3 Product Cards + Expressive Hover Animations
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"][data-ozmd3-cards="on"] [data-ozmd3-role="card"],
+html[data-ozmd3="on"][data-ozmd3-cards="on"] .tile-root {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  border: 1px solid var(--md-sys-color-outline-variant) !important;
+  padding: var(--ozmd3-density-pad, 12px) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  position: relative;
+}
+
+html[data-ozmd3="on"] [data-widget="searchResultsV2"] > div,
+html[data-ozmd3="on"] [data-widget="skuGrid"] > div {
+  gap: var(--ozmd3-density-gap, 12px) !important;
+}
+
+/* Shared transition setup for cards */
+html[data-ozmd3="on"]:not([data-ozmd3-hover="off"]) [data-ozmd3-role="card"],
+html[data-ozmd3="on"]:not([data-ozmd3-hover="off"]) .tile-root {
+  transition: transform 0.36s var(--md-motion-spring-fast-spatial),
+              background-color 0.22s var(--md-motion-spring-fast-effects),
+              border-color 0.22s var(--md-motion-spring-fast-effects),
+              border-radius 0.32s var(--md-motion-spring-fast-spatial),
+              box-shadow 0.32s var(--md-motion-spring-default-effects) !important;
+  will-change: transform, box-shadow;
+}
+
+html[data-ozmd3="on"]:not([data-ozmd3-hover="off"]) [data-ozmd3-role="card"] img,
+html[data-ozmd3="on"]:not([data-ozmd3-hover="off"]) .tile-root img {
+  transition: transform 0.42s var(--md-motion-spring-default-spatial),
+              border-radius 0.32s var(--md-motion-spring-fast-spatial) !important;
+}
+
+/* Hover Style 1: Expressive Spring Lift (Default) */
+html[data-ozmd3="on"][data-ozmd3-hover="spring"] [data-ozmd3-role="card"]:hover,
+html[data-ozmd3="on"][data-ozmd3-hover="spring"] .tile-root:hover {
+  transform: translateY(-6px) scale(1.018) !important;
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  border-color: rgba(var(--md-sys-color-primary-rgb), 0.65) !important;
+  box-shadow: 0 14px 32px -8px rgba(var(--md-sys-color-primary-rgb), 0.28),
+              0 4px 12px rgba(0, 0, 0, 0.10) !important;
+  z-index: 4;
+}
+
+html[data-ozmd3="on"][data-ozmd3-hover="spring"] [data-ozmd3-role="card"]:hover img,
+html[data-ozmd3="on"][data-ozmd3-hover="spring"] .tile-root:hover img {
+  transform: scale(1.045) !important;
+}
+
+/* Hover Style 2: Expressive Shape Morph */
+html[data-ozmd3="on"][data-ozmd3-hover="morph"] [data-ozmd3-role="card"]:hover,
+html[data-ozmd3="on"][data-ozmd3-hover="morph"] .tile-root:hover {
+  transform: scale(1.022) !important;
+  border-radius: calc(var(--ozmd3-radius-lg) + 12px) !important;
+  background-color: var(--md-sys-color-surface-container-highest) !important;
+  border-color: var(--md-sys-color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.32),
+              0 12px 26px rgba(var(--md-sys-color-primary-rgb), 0.22) !important;
+  z-index: 4;
+}
+
+html[data-ozmd3="on"][data-ozmd3-hover="morph"] [data-ozmd3-role="card"]:hover img,
+html[data-ozmd3="on"][data-ozmd3-hover="morph"] .tile-root:hover img {
+  transform: scale(1.035) !important;
+  border-radius: calc(var(--ozmd3-radius-md) + 10px) !important;
+}
+
+/* Hover Style 3: Expressive 3D Pop & Tilt */
+html[data-ozmd3="on"][data-ozmd3-hover="tilt"] [data-ozmd3-role="card"]:hover,
+html[data-ozmd3="on"][data-ozmd3-hover="tilt"] .tile-root:hover {
+  transform: perspective(700px) rotateX(2.5deg) translateY(-7px) scale(1.024) !important;
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  border-color: var(--md-sys-color-tertiary) !important;
+  box-shadow: 0 18px 38px -10px rgba(var(--md-sys-color-primary-rgb), 0.34) !important;
+  z-index: 4;
+}
+
+html[data-ozmd3="on"][data-ozmd3-hover="tilt"] [data-ozmd3-role="card"]:hover img,
+html[data-ozmd3="on"][data-ozmd3-hover="tilt"] .tile-root:hover img {
+  transform: scale(1.06) !important;
+}
+
+/* Hover Style 4: Minimal MD3 Tonal State Layer */
+html[data-ozmd3="on"][data-ozmd3-hover="minimal"] [data-ozmd3-role="card"]:hover,
+html[data-ozmd3="on"][data-ozmd3-hover="minimal"] .tile-root:hover {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  border-color: var(--md-sys-color-outline) !important;
+}
+
+/* ----------------------------------------------------------------------------
+   8. Material Symbols Rounded Icon Styling
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"][data-ozmd3-icons="on"] .ozmd3-orig-svg-hidden {
+  display: none !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-icons="on"] svg.ozmd3-icon-svg {
+  width: var(--ozmd3-this-icon-px, var(--ozmd3-icon-size, 22px)) !important;
+  height: var(--ozmd3-this-icon-px, var(--ozmd3-icon-size, 22px)) !important;
+  min-width: 14px;
+  min-height: 14px;
+  fill: currentColor !important;
+  display: inline-block !important;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: transform 0.25s var(--md-motion-spring-fast-spatial), color 0.18s ease !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-icons="on"] svg.ozmd3-icon-svg.ozmd3-icon-star[data-ozmd3-active="1"] {
+  color: #F59E0B !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-icons="on"] svg.ozmd3-icon-svg.ozmd3-icon-heart[data-ozmd3-active="1"] {
+  color: var(--md-sys-color-primary) !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-icons="on"] button:hover > svg.ozmd3-icon-svg,
+html[data-ozmd3="on"][data-ozmd3-icons="on"] a:hover > svg.ozmd3-icon-svg {
+  transform: scale(1.12);
+}
+
+html[data-ozmd3="on"][data-ozmd3-icons="on"] svg.ozmd3-smoothed-svg * {
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* ----------------------------------------------------------------------------
+   9. Material 3 Expressive Page-to-Page Transitions, Cascade & Progress Bar
+   ---------------------------------------------------------------------------- */
+#ozmd3-nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 2147483645;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+#ozmd3-nav-progress.is-active {
+  opacity: 1;
+}
+
+.ozmd3-nav-progress-track {
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--md-sys-color-primary-rgb), 0.18);
+  overflow: hidden;
+  border-radius: 0 0 4px 4px;
+}
+
+.ozmd3-nav-progress-fill {
+  width: 45%;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary), var(--md-sys-color-primary));
+  background-size: 200% 100%;
+  animation: ozmd3-progress-slide 1.15s cubic-bezier(0.38, 1.21, 0.22, 1) infinite;
+}
+
+#ozmd3-nav-progress.is-finishing .ozmd3-nav-progress-fill {
+  width: 100%;
+  animation: none;
+  transition: width 0.24s var(--md-motion-spring-fast-spatial);
+}
+
+@keyframes ozmd3-progress-slide {
+  0%   { transform: translateX(-110%) scaleX(0.7); }
+  50%  { transform: translateX(65%) scaleX(1.25); }
+  100% { transform: translateX(240%) scaleX(0.8); }
+}
+
+/* Shared Axis Y (Default Expressive) */
+html[data-ozmd3="on"][data-ozmd3-trans-style="shared-axis"] .ozmd3-page-entering {
+  animation: ozmd3-enter-shared-axis var(--ozmd3-trans-duration, 500ms) var(--ozmd3-trans-curve, cubic-bezier(0.38, 1.21, 0.22, 1)) both !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-trans-style="shared-axis"] .ozmd3-page-exiting {
+  animation: ozmd3-exit-shared-axis 160ms var(--md-motion-spring-fast-effects) forwards !important;
+}
+
+@keyframes ozmd3-enter-shared-axis {
+  0%   { opacity: 0; transform: translateY(22px) scale(0.982); }
+  65%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes ozmd3-exit-shared-axis {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0.28; transform: translateY(-10px) scale(0.99); }
+}
+
+/* Morph Lift Expressive */
+html[data-ozmd3="on"][data-ozmd3-trans-style="morph-lift"] .ozmd3-page-entering {
+  animation: ozmd3-enter-morph var(--ozmd3-trans-duration, 500ms) var(--md-motion-spring-fast-spatial) both !important;
+}
+
+html[data-ozmd3="on"][data-ozmd3-trans-style="morph-lift"] .ozmd3-page-exiting {
+  animation: ozmd3-exit-morph 160ms var(--md-motion-spring-fast-effects) forwards !important;
+}
+
+@keyframes ozmd3-enter-morph {
+  0%   { opacity: 0; transform: scale(0.94); filter: blur(4px); }
+  70%  { opacity: 1; filter: blur(0px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+}
+
+@keyframes ozmd3-exit-morph {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.25; transform: scale(1.02); }
+}
+
+/* Horizontal Slide X (Forward / Back) */
+html[data-ozmd3="on"][data-ozmd3-trans-style="slide-x"][data-ozmd3-trans-dir="forward"] .ozmd3-page-entering {
+  animation: ozmd3-enter-slide-fwd var(--ozmd3-trans-duration, 500ms) var(--ozmd3-trans-curve) both !important;
+}
+html[data-ozmd3="on"][data-ozmd3-trans-style="slide-x"][data-ozmd3-trans-dir="back"] .ozmd3-page-entering {
+  animation: ozmd3-enter-slide-back var(--ozmd3-trans-duration, 500ms) var(--ozmd3-trans-curve) both !important;
+}
+html[data-ozmd3="on"][data-ozmd3-trans-style="slide-x"] .ozmd3-page-exiting {
+  animation: ozmd3-exit-slide 150ms var(--md-motion-spring-fast-effects) forwards !important;
+}
+
+@keyframes ozmd3-enter-slide-fwd {
+  0%   { opacity: 0; transform: translateX(38px) scale(0.985); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes ozmd3-enter-slide-back {
+  0%   { opacity: 0; transform: translateX(-38px) scale(0.985); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes ozmd3-exit-slide {
+  0%   { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0.25; transform: translateX(-18px); }
+}
+
+/* Staggered Card Cascade Entrance */
+html[data-ozmd3="on"] .ozmd3-card-cascade {
+  animation: ozmd3-card-spring-in 480ms var(--md-motion-spring-default-spatial) backwards;
+  animation-delay: calc(var(--ozmd3-stagger-i, 0) * 24ms);
+}
+
+@keyframes ozmd3-card-spring-in {
+  0%   { opacity: 0; transform: translateY(18px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* MD3 Pointerdown Ripple Wave */
+.ozmd3-ripple-host {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.ozmd3-ripple-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--md-sys-color-primary-rgb), 0.30) 0%, rgba(var(--md-sys-color-primary-rgb), 0.08) 65%, transparent 100%);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ozmd3-ripple-expand 540ms cubic-bezier(0.2, 0, 0, 1) forwards;
+  z-index: 2;
+}
+
+@keyframes ozmd3-ripple-expand {
+  0%   { transform: scale(0); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ----------------------------------------------------------------------------
+   10. Floating Quick MD3 Studio FAB & Live Panel on Ozon
+   ---------------------------------------------------------------------------- */
+html[data-ozmd3="on"][data-ozmd3-fab="off"] #ozmd3-fab,
+html[data-ozmd3="on"][data-ozmd3-fab="off"] #ozmd3-quick-panel {
+  display: none !important;
+}
+
+#ozmd3-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483640;
+  height: 48px;
+  padding: 0 18px 0 14px;
+  border: 1px solid rgba(var(--md-sys-color-primary-rgb), 0.45);
+  border-radius: var(--ozmd3-radius-pill, 9999px);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-family: "Google Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+  transition: transform 0.36s var(--md-motion-spring-fast-spatial),
+              opacity 0.24s var(--md-motion-spring-fast-effects),
+              box-shadow 0.22s ease,
+              background-color 0.2s ease;
+}
+
+#ozmd3-fab:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(var(--md-sys-color-primary-rgb), 0.35);
+}
+
+#ozmd3-fab.is-scroll-hidden {
+  opacity: 0 !important;
+  transform: translateY(84px) scale(0.84) !important;
+  pointer-events: none !important;
+}
+
+#ozmd3-fab svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+#ozmd3-quick-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 78px;
+  width: 318px;
+  max-height: 76vh;
+  overflow-y: auto;
+  z-index: 2147483641;
+  border-radius: 26px;
+  padding: 14px;
+  background: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+  font-family: "Google Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+  display: none;
+  flex-direction: column;
+  gap: 11px;
+  transform-origin: bottom right;
+}
+
+#ozmd3-quick-panel.is-open {
+  display: flex;
+  animation: ozmd3-panel-pop 320ms var(--md-motion-spring-fast-spatial) both;
+}
+
+@keyframes ozmd3-panel-pop {
+  0%   { opacity: 0; transform: translateY(12px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.ozmd3-qp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ozmd3-qp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.ozmd3-qp-badge {
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ozmd3-qp-box {
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 18px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ozmd3-qp-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.ozmd3-qp-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.ozmd3-qp-tab {
+  height: 28px;
+  border-radius: 9999px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ozmd3-qp-tab.is-active {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-color: var(--md-sys-color-primary);
+}
+
+.ozmd3-qp-slider-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 38px;
+  align-items: center;
+  gap: 8px;
+}
+
+.ozmd3-qp-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--md-sys-color-primary);
+  cursor: pointer;
+}
+
+.ozmd3-qp-val {
+  text-align: right;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ozmd3-qp-presets {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.ozmd3-qp-dot {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.ozmd3-qp-dot.is-active {
+  border-color: var(--md-sys-color-on-surface);
+}
